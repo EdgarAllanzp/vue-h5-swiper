@@ -4,7 +4,8 @@
   >
     <div 
       v-show="active"
-      class="swiper-item">
+      class="swiper-item"
+    >
       <div class="swiper-item-content">
         <slot />
       </div>
