@@ -34,15 +34,18 @@
   "homepage": "https://github.com/EdgarAllanzp/vue-h5-swiper#readme",
   "devDependencies": {
     "@babel/core": "^7.4.3",
+    "babel-eslint": "^10.0.1",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.2.2",
     "husky": "^2.1.0",
     "minimist": "^1.2.0",
+    "node-sass": "^4.11.0",
     "rollup": "^1.10.1",
     "rollup-plugin-babel": "^4.3.2",
     "rollup-plugin-commonjs": "^9.3.4",
     "rollup-plugin-terser": "^4.0.4",
     "rollup-plugin-vue": "^5.0.0",
+    "sass-loader": "^7.1.0",
     "vue-template-compiler": "^2.6.10"
   }
 }

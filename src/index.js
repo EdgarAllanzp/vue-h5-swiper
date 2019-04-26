@@ -1,11 +1,13 @@
-import Swiper from './swiper.vue';
+import Swiper from './swiper';
+import SwiperItem from './swiper-item';
 
 export function install(Vue) {
   if (install.installed) {
     return;
   }
   install.installed = true;
-  Vue.Component('Swiper', Swiper);
+  Swiper.install(Vue);
+  SwiperItem.install(Vue);
 }
 
 const plugin = {
@@ -23,4 +25,4 @@ if (GlobalVue) {
   GlobalVue.use(plugin);
 }
 
-export default Swiper;
+export { Swiper, SwiperItem };
