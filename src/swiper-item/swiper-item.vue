@@ -5,6 +5,7 @@
     <div 
       v-show="active"
       class="swiper-item"
+      :class="{ active }"
     >
       <div class="swiper-item-content">
         <slot />
@@ -79,6 +80,10 @@ export default {
   right: 0;
   bottom: 0;
   z-index: 0;
+
+  &.active {
+    z-index: 1;
+  }
 
   &-content {
     position: relative;

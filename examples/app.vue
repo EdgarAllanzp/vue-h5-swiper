@@ -1,7 +1,7 @@
 <template>
   <div class="app">
     <swiper
-      pageTransition="move"
+      pageTransition="three"
     >
       <swiper-item
         v-for="(color, index) in colors"
@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import { Swiper, SwiperItem } from '../src';
+import { Swiper, SwiperItem } from '../';
 import Page from './page';
 
 export default {

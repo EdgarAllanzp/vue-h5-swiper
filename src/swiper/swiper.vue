@@ -45,7 +45,6 @@ export default {
           'scale',
           'glue',
           'cube',
-          'cube',
           'push',
           'three'
         ].indexOf(value) !== -1;
