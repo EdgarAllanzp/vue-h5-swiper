@@ -10,8 +10,8 @@
       :class="{ active }"
     >
       <div 
-        class="swiper-item-content"
         ref="swiper-content"
+        class="swiper-item-content"
         @mousedown="swipeStart"
         @mouseup="swipeMove"
         @touchstart="swipeStart"
@@ -50,12 +50,6 @@ export default {
     };
   },
 
-  watch: {
-    swipeDirection (direction) {
-      direction && this.swiper.$emit('swipe', direction);
-    }
-  },
-
   computed: {
     pageTransition() {
       let transitionName = '';
@@ -73,6 +67,12 @@ export default {
         }
       }
       return transitionName;
+    }
+  },
+
+  watch: {
+    swipeDirection (direction) {
+      direction && this.swiper.$emit('swipe', direction);
     }
   },
 
