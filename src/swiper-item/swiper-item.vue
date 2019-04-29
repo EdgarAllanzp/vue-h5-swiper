@@ -1,13 +1,22 @@
 <template>
   <transition
     :name="pageTransition"
+    @enter="enter"
+    @after-enter="afterEnter"
   >
     <div 
       v-show="active"
       class="swiper-item"
       :class="{ active }"
     >
-      <div class="swiper-item-content">
+      <div 
+        class="swiper-item-content"
+        ref="swiper-content"
+        @mousedown="swipeStart"
+        @mouseup="swipeMove"
+        @touchstart="swipeStart"
+        @touchmove="swipeMove"
+      >
         <slot />
       </div>
     </div>
@@ -15,6 +24,7 @@
 </template>
 
 <script>
+import BScroll from 'better-scroll';
 
 const STATUS = {
   ENTER: 'enter',
@@ -30,8 +40,20 @@ export default {
   data() {
     return {
       active: false,
-      status: STATUS.NORMAL
+      status: STATUS.NORMAL,
+      x1: null,
+      y1: null,
+      x2: null,
+      y2: null,
+      swipeDirection: '',
+      scroll: null
     };
+  },
+
+  watch: {
+    swipeDirection (direction) {
+      direction && this.swiper.$emit('swipe', direction);
+    }
   },
 
   computed: {
@@ -54,7 +76,74 @@ export default {
     }
   },
 
+  mounted() {
+    this.scroll = new BScroll(this.$refs['swiper-content'], {
+      mouseWheel: true,
+      bounce: {
+        top: false,
+        bottom: false
+      },
+      click: true,
+      scrollbar: {
+        fade: true,
+        interactive: false
+      },
+      preventDefaultException: {
+        tagName: /^(INPUT|TEXTAREA|BUTTON|SELECT|IMG)$/
+      }
+    });
+  },
+
   methods: {
+    enter() {
+      this.scroll.refresh();
+      this.scroll.scrollTo(0, 0);
+    },
+
+    afterEnter() {
+      this.swiper.$emit('pageAnimationEnd');
+    },
+
+    swipeStart(evt) {
+      if (this.swiper.pageAnimating) {
+        return;
+      }
+      this.x1 = evt.clientX || evt.touches[0].clientX;
+      this.y1 = evt.clientY || evt.touches[0].clientY;
+      this.swipeDirection = '';
+    },
+
+    swipeMove(evt) {
+      if (this.swiper.pageAnimating) {
+        return;
+      }
+      const triggerDistance = 50;
+      this.x2 = evt.clientX || evt.touches[0].clientX;
+      this.y2 = evt.clientY || evt.touches[0].clientY;
+      if ((this.x2 && Math.abs(this.x1 - this.x2) > triggerDistance) ||
+          (this.y2 && Math.abs(this.y1 - this.y2) > triggerDistance)) {
+        const direction = this.getDirection(this.x1, this.x2, this.y1, this.y2);
+        if (this.reachBoundary(direction)) {
+          this.swipeDirection = direction;
+        }
+      }
+    },
+
+    getDirection(x1, x2, y1, y2) {
+      if (Math.abs(x1 - x2) >= Math.abs(y1 - y2)) {
+        return (x1 - x2 > 0 ? 'Left' : 'Right');
+      }
+      return (y1 - y2 > 0 ? 'Up' : 'Down');
+    },
+
+    reachBoundary(direction) {
+      const { y, maxScrollY } = this.scroll;
+      if (direction === 'Up') {
+        return y === maxScrollY;
+      }
+      return y === 0;
+    },
+
     setActive(index, activeIndex, oldIndex) {
       this.active = index === activeIndex;
 

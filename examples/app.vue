@@ -1,7 +1,9 @@
 <template>
   <div class="app">
     <swiper
-      pageTransition="three"
+      pageTransition="cube"
+      loop
+      autoplay
     >
       <swiper-item
         v-for="(color, index) in colors"

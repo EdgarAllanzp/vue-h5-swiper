@@ -5,7 +5,7 @@
       v-if="showIndicator"
       class="swipe-progress"
     >
-      <li 
+      <li
         v-for="(item, index) in items"
         :key="index"
         class="swipe-progress-dot"
@@ -49,6 +49,21 @@ export default {
           'three'
         ].indexOf(value) !== -1;
       }
+    },
+
+    loop: {
+      type: Boolean,
+      default: false
+    },
+
+    interval: {
+      type: Number,
+      default: 3000
+    },
+
+    autoplay: {
+      type: Boolean,
+      default: false
     }
   },
 
@@ -63,16 +78,88 @@ export default {
       items: [],
       activeIndex: -1,
       oldIndex: -1,
-      swipeDirection: ''
+      swipeDirection: '',
+      pageAnimating: false,
+      timer: null
     };
   },
 
   mounted() {
     this.initItems();
+    this.$on('swipe', this.handleSwipe);
+    this.$on('pageAnimationEnd', this.handlePageAnimationEnd);
     this.setActiveItem(0);
   },
 
   methods: {
+    startTimer() {
+      if (this.interval <= 0 || !this.autoplay) return;
+      this.timer = setInterval(this.playSlides, this.interval);
+    },
+
+    pauseTimer() {
+      clearInterval(this.timer);
+    },
+
+    playSlides() {
+      this.next();
+    },
+
+    getNextIndex(isNext = true) {
+      const length = this.items.length;
+      let index = this.activeIndex;
+
+      if (this.loop) {
+        index = (isNext ? (++index) : (--index + length)) % length;
+        if (index === this.activeIndex) return -1;         
+      } else {
+        isNext ? index++ : index--;
+        if (index >= length || index < 0) return -1;
+      }
+
+      if (
+        index === this.activeIndex ||
+        index >= length || 
+        index < 0
+      ) {
+        return -1;
+      }
+
+      return index;
+    },
+
+    handleSwipe(direction) {
+      if (direction === 'Up') {
+        this.next();
+      } else if (direction === 'Down') {
+        this.prev();
+      }
+    },
+
+    handlePageAnimationEnd() {
+      this.pageAnimating = false;
+      this.$emit('afterChange', this.activeIndex, this.oldIndex);
+      this.startTimer();
+    },
+
+    prev() {
+      let prevIndex = this.getNextIndex(false);
+      if (prevIndex === -1) {
+        return;
+      }
+      this.swipeDirection = 'Down';
+      this.setActiveItem(prevIndex);
+    },
+
+    next() {
+      let nextIndex = this.getNextIndex();
+      if (nextIndex === -1) {
+        return;
+      }
+      this.swipeDirection = 'Up';
+      this.setActiveItem(nextIndex);
+    },
+
     moveTo(index) {
       if (index === this.activeIndex) {
         return;
@@ -92,6 +179,8 @@ export default {
       if (oldIndex !== this.activeIndex) {
         this.oldIndex = oldIndex;
         this.$emit('beforeChange', this.activeIndex, this.oldIndex);
+        this.pauseTimer();
+        this.pageAnimating = true;
         this.items.forEach((item, index) => {
           item.setActive(index, this.activeIndex, oldIndex);
         });
