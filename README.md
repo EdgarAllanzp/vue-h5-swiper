@@ -1,3 +1,4 @@
+<p align="center"><img src="./assets/hero.gif" alt="hero" width="100" /></p> 
 <h2 align="center">Vue H5 Swiper</h2>
 <p align="center"><strong>Slight</strong> vue slider component for <strong>H5</strong> applications.</p>
 

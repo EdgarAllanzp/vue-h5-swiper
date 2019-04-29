@@ -4,6 +4,7 @@
       page-transition="cube"
       loop
       autoplay
+      :interval="1000"
       :show-indicator="false"
     >
       <swiper-item

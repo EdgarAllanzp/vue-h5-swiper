@@ -4,10 +4,7 @@
   "main": "dist/swiper.umd.js",
   "module": "dist/swiper.esm.js",
   "unpkg": "dist/swiper.min.js",
-  "browser": {
-    "./sfc": "src/swiper.vue"
-  },
-  "description": "",
+  "description": "Slight vue slider component for H5 applications.",
   "scripts": {
     "lint": "eslint --ext .js,.vue src",
     "dev": "webpack-dev-server --inline --progress --open --config examples/webpack.config.js",
@@ -26,9 +23,20 @@
     "type": "git",
     "url": "git+https://github.com/EdgarAllanzp/vue-h5-swiper.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "vue-h5-swiper",
+    "vue swiper",
+    "vue slide",
+    "vue carousel",
+    "vue h5",
+    "h5 swiper",
+    "h5"
+  ],
+  "files": [
+    "dist"
+  ],
+  "author": "Edgar Li",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/EdgarAllanzp/vue-h5-swiper/issues"
   },
