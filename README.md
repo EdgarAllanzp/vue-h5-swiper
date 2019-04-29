@@ -52,7 +52,14 @@ export default {
 |`show-indicator`     |`true`         |Display indicators.  |
 |`page-transition`    |`'move'`       |Paging animation. Available animations: `['move', 'fade', 'cover', 'carousel', 'scale', 'glue', 'cube', 'push', 'three']`   |
 |`autoplay`           |`false`        |Auto slide.          |
-|`interval`           |`3000`         |Auto slide interval.          |
+|`interval`           |`3000`         |Auto slide interval. |
+
+### Events
+
+|Event                 |Params                        |Description             |
+|----------------------|------------------------------|------------------------|
+|`beforeChange`        |`activeIndex`, `oldIndex`     |Before paging hook.     |
+|`afterChange`         |`activeIndex`, `oldIndex`     |After paging hook.      |
 
 ### Methods
 
