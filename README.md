@@ -1,28 +1,13 @@
 <h2 align="center">Vue H5 Swiper</h2>
-<p align="center"><strong>Slight</strong> slider vue component for H5 applications.</p>
+<p align="center"><strong>Slight</strong> vue slider component for <strong>H5</strong> applications.</p>
 
 ## Features
 
-## Documentation
-
-### Props
-
-|Prop                 |Default        |Description          |
-|---------------------|---------------|---------------------|
-|`loop`               |`false`        |Enable loop mode.    |
-|`show-indicator`     |`true`         |Display indicators.  |
-|`page-transition`    |`'move'`       |Paging animation. Available animations: `['move', 'fade', 'cover', 'carousel', 'scale', 'glue', 'cube', 'push', 'three']`   |
-|`autoplay`           |`false`        |Auto slide.          |
-|`interval`           |`3000`         |Auto slide interval.          |
-
-### Methods
-
-|Method          |Description                 |
-|----------------|----------------------------|
-|`moveTo(index)` |Move to the specified page. |
-|`next()`        |Move to next page.          |
-|`prev()`        |Move to previous page.      |
-
+- Slight, only has [better-scroll](https://github.com/ustbhuangyi/better-scroll) dependency.
+- Support long content page.
+- A great diversity of paging animations.
+- Without fake element at `loop` mode.
+- Optimized displayed `SwiperItem` count.
 
 ## Installation
 
@@ -55,6 +40,26 @@ export default {
 };
 </script>
 ```
+
+## Documentation
+
+### Props
+
+|Prop                 |Default        |Description          |
+|---------------------|---------------|---------------------|
+|`loop`               |`false`        |Enable loop mode.    |
+|`show-indicator`     |`true`         |Display indicators.  |
+|`page-transition`    |`'move'`       |Paging animation. Available animations: `['move', 'fade', 'cover', 'carousel', 'scale', 'glue', 'cube', 'push', 'three']`   |
+|`autoplay`           |`false`        |Auto slide.          |
+|`interval`           |`3000`         |Auto slide interval.          |
+
+### Methods
+
+|Method          |Description                 |
+|----------------|----------------------------|
+|`moveTo(index)` |Move to the specified page. |
+|`next()`        |Move to next page.          |
+|`prev()`        |Move to previous page.      |
 
 ## Contributing
 
