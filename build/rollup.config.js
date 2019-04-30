@@ -3,7 +3,8 @@ import babel from 'rollup-plugin-babel';
 import commonjs from 'rollup-plugin-commonjs';
 import { terser } from 'rollup-plugin-terser';
 import minimist from 'minimist';
-import autoprefixer from 'autoprefixer'
+import autoprefixer from 'autoprefixer';
+import resolve from 'rollup-plugin-node-resolve';
 
 const argv = minimist(process.argv.slice(2));
 
@@ -14,6 +15,7 @@ const config = {
     exports: 'named'
   },
   plugins: [
+    resolve(),
     commonjs(),
     vue({
       css: true,
