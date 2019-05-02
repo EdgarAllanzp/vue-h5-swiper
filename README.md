@@ -44,7 +44,9 @@ export default {
 
 ## Documentation
 
-### Props
+### Swiper
+
+#### Props
 
 |Prop                 |Default        |Description          |
 |---------------------|---------------|---------------------|
@@ -54,20 +56,36 @@ export default {
 |`autoplay`           |`false`        |Auto slide.          |
 |`interval`           |`3000`         |Auto slide interval. |
 
-### Events
+#### Events
 
 |Event                 |Params                        |Description             |
 |----------------------|------------------------------|------------------------|
 |`beforeChange`        |`activeIndex`, `oldIndex`     |Before paging hook.     |
 |`afterChange`         |`activeIndex`, `oldIndex`     |After paging hook.      |
 
-### Methods
+#### Methods
 
 |Method          |Description                 |
 |----------------|----------------------------|
 |`moveTo(index)` |Move to the specified page. |
 |`next()`        |Move to next page.          |
 |`prev()`        |Move to previous page.      |
+
+#### Slots
+
+|Slot            |Description             |
+|----------------|------------------------|
+|default---------|For `SwiperItem`.       |
+|indicator-------|Custom swiper indicator.|
+
+### SwiperItem
+
+#### Slots
+
+|Slot            |Description             |
+|----------------|------------------------|
+|default---------|For display content.    |
+
 
 ## Contributing
 

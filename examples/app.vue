@@ -6,7 +6,7 @@
         :loop="loop"
         :autoplay="autoplay"
         :interval="interval"
-        :show-indicator="false"
+        :show-indicator="showIndicator"
         @beforeChange="beforeChange"
         @afterChange="afterChange"
       >
@@ -41,6 +41,9 @@
         </el-form-item>
         <el-form-item label="Loop">
           <el-switch v-model="loop" />
+        </el-form-item>
+        <el-form-item label="Show Indicator">
+          <el-switch v-model="showIndicator" />
         </el-form-item>
       </el-form>
     </el-card>
@@ -83,6 +86,7 @@ export default {
       loop: true,
       autoplay: true,
       interval: 1000,
+      showIndicator: false,
       pageTransition: PAGE_TRANSITIONS[0],
       pageTransitions: PAGE_TRANSITIONS,
     };
