@@ -3,7 +3,8 @@
     <slot />
     <slot 
       v-if="showIndicator"
-      name="indicator">
+      name="indicator"
+    >
       <ul class="swipe-progress">
         <li
           v-for="(item, index) in items"
