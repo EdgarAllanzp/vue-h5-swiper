@@ -1,20 +1,21 @@
 <template>
   <div class="swiper">
     <slot />
-    <ul
+    <slot 
       v-if="showIndicator"
-      class="swipe-progress"
-    >
-      <li
-        v-for="(item, index) in items"
-        :key="index"
-        class="swipe-progress-dot"
-        :class="{
-          active: index === activeIndex
-        }"
-        @click="moveTo(index)"
-      />
-    </ul>
+      name="indicator">
+      <ul class="swipe-progress">
+        <li
+          v-for="(item, index) in items"
+          :key="index"
+          class="swipe-progress-dot"
+          :class="{
+            active: index === activeIndex
+          }"
+          @click="moveTo(index)"
+        />
+      </ul>
+    </slot>
   </div>
 </template>
 
@@ -209,10 +210,8 @@ export default {
     z-index: 102;
 
     &-dot {
-      // width: .25rem;
-      // height: .25rem;
-      width: 20px;
-      height: 20px;
+      width: .25rem;
+      height: .25rem;
       margin-bottom: .2rem;
       list-style: none;
       border-radius: 50%;
