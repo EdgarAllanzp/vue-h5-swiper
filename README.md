@@ -2,6 +2,10 @@
 <h2 align="center">Vue H5 Swiper</h2>
 <p align="center"><strong>Slight</strong> vue slider component for <strong>H5</strong> applications.</p>
 
+<p align="center">
+  <a href="https://travis-ci.com/EdgarAllanzp/vue-h5-swiper"><img src="https://travis-ci.com/EdgarAllanzp/vue-h5-swiper.svg?branch=master" /></a>
+</p>
+
 ## Features
 
 - Slight, only has [better-scroll](https://github.com/ustbhuangyi/better-scroll) dependency.

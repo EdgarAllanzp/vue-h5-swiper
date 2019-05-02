@@ -17,7 +17,3 @@ deploy:
   skip_cleanup: true
   github_token: $GITHUB_TOKEN
   keep_history: true
-- provider: npm
-  email: lipeizhao318@gmail.com
-  api_key: $NPM_TOKEN
-  skip-cleanup: true
