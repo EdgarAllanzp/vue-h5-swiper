@@ -13,11 +13,10 @@ script:
 cache: yarn
 deploy:
 - provider: pages
+  local-dir: examples/dist
   skip_cleanup: true
   github_token: $GITHUB_TOKEN
   keep_history: true
-  on:
-    branch: master
 - provider: npm
   email: lipeizhao318@gmail.com
   api_key: $NPM_TOKEN
