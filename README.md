@@ -14,6 +14,16 @@
 - Without fake element at `loop` mode.
 - Optimized displayed `SwiperItem` count.
 
+## Demos
+
+Online demo: https://edgarallanzp.github.io/vue-h5-swiper/
+
+Or
+
+```sh
+yarn dev
+```
+
 ## Installation
 
 ```sh
