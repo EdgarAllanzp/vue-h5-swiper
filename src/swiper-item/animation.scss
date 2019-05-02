@@ -1,0 +1,449 @@
+/* 
+  Paging animations
+
+  Naming: 
+    `${action}${swipeDirection}-${'enter'/'leave'}-active`
+    `@keyframes page-${action}${swipeDirection}-${'enter'/'leave'}`
+
+  E.g.：
+    .page-moveUp-enter-active
+    @keyframes page-moveUp-enter
+*/
+
+// move 滑动
+.page-moveUp-enter-active {
+  animation: page-moveUp-enter .8s ease both;
+}
+
+.page-moveUp-leave-active {
+  animation: page-moveUp-leave .8s ease both;
+}
+
+.page-moveDown-enter-active {
+  animation: page-moveDown-enter .8s ease both;
+}
+
+.page-moveDown-leave-active {
+  animation: page-moveDown-leave .8s ease both;
+}
+
+@keyframes page-moveUp-enter {
+  0% {
+    transform: translateY(-100%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes page-moveUp-leave {
+  0% {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes page-moveDown-enter {
+  0% {
+    transform: translateY(100%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes page-moveDown-leave {
+  0% {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(100%);
+  }
+}
+
+// fade
+.page-fadeUp-enter-active {
+  animation: page-fadeUp-enter .8s ease both;
+}
+
+.page-fadeUp-leave-active {
+  animation: page-fadeUp-leave .8s ease both;
+}
+
+.page-fadeDown-enter-active {
+  animation: page-fadeDown-enter .8s ease both;
+}
+
+.page-fadeDown-leave-active {
+  animation: page-fadeDown-leave .8s ease both;
+}
+
+@keyframes page-fadeUp-enter {
+  0% {
+    transform: translateY(-100%);
+    opacity: .3
+  }
+}
+
+@keyframes page-fadeUp-leave {
+  to {
+    transform: translateY(-100%);
+    opacity: .3
+  }
+}
+
+@keyframes page-fadeDown-enter {
+  0% {
+    transform: translateY(100%);
+    opacity: .3
+  }
+}
+
+@keyframes page-fadeDown-leave {
+  to {
+    transform: translateY(100%);
+    opacity: .3
+  }
+}
+
+// cover 覆盖
+.page-coverUp-enter-active {
+  animation: page-coverUp-enter .8s ease both;
+}
+
+.page-coverUp-leave-active {
+  animation: page-coverUp-leave .8s ease both;
+}
+
+.page-coverDown-enter-active {
+  animation: page-coverDown-enter .8s ease both;
+}
+
+.page-coverDown-leave-active {
+  animation: page-coverDown-leave .8s ease both;
+}
+
+@keyframes page-coverUp-enter {
+  0% {
+    transform: translateY(-100%)
+  }
+}
+
+@keyframes page-coverUp-leave {}
+
+@keyframes page-coverDown-enter {
+  0% {
+    transform: translateY(100%)
+  }
+}
+
+@keyframes page-coverDown-leave {}
+
+// carousel 层叠
+.page-carouselUp-enter-active {
+  transform-origin: 50% 100%;
+  animation: page-carouselUp-enter .8s ease both;
+}
+
+.page-carouselUp-leave-active {
+  transform-origin: 50% 100%;
+  animation: page-carouselUp-leave .8s ease both;
+}
+
+.page-carouselDown-enter-active {
+  transform-origin: 50% 0;
+  animation: page-carouselDown-enter .8s ease both;
+}
+
+.page-carouselDown-leave-active {
+  transform-origin: 50% 0;
+  animation: page-carouselDown-leave .8s ease both;
+}
+
+@keyframes page-carouselUp-enter {
+  0% {
+    transform: translateY(-200%) scale(.4);
+    opacity: .3
+  }
+}
+
+@keyframes page-carouselUp-leave {
+  to {
+    transform: translateY(-200%) scale(.4);
+    opacity: .3
+  }
+}
+
+@keyframes page-carouselDown-enter {
+  0% {
+    transform: translateY(200%) scale(.4);
+    opacity: .3
+  }
+}
+
+@keyframes page-carouselDown-leave {
+  to {
+    transform: translateY(200%) scale(.4);
+    opacity: .3
+  }
+}
+
+// scale 覆盖缩小
+.page-scaleUp-enter-active {
+  animation: page-moveUp-enter .8s ease both;
+}
+
+.page-scaleUp-leave-active {
+  transform-origin: center center;
+  animation: page-scale .8s ease both;
+}
+
+.page-scaleDown-enter-active {
+  animation: page-moveDown-enter .8s ease both;
+}
+
+.page-scaleDown-leave-active {
+  transform-origin: center center;
+  animation: page-scale .8s ease both;
+}
+
+@keyframes page-scale {
+  to {
+    transform: scale(.8);
+    opacity: 0
+  }
+}
+
+// glue 缩放层叠
+.page-glueUp-enter-active {
+  animation: page-moveUp-enter .6s ease .2s both;
+}
+
+.page-glueUp-leave-active {
+  transform-origin: 50% 0;
+  animation: page-glue-bottom .8s ease both;
+}
+
+.page-glueDown-enter-active {
+  animation: page-moveDown-enter .6s ease .2s both;
+}
+
+.page-glueDown-leave-active {
+  transform-origin: 50% 100%;
+  animation: page-glue-top .8s ease both;
+}
+
+@keyframes page-glue-bottom {
+  30% {
+    opacity: .8
+  }
+
+  to {
+    transform: translateZ(200px) scale(.6) rotateX(-20deg);
+    opacity: 0
+  }
+}
+
+@keyframes page-glue-top {
+  30% {
+      opacity: .8
+  }
+
+  to {
+    transform: translateZ(200px) scale(.8) rotateX(20deg);
+    opacity: 0
+  }
+}
+
+// cube 立体翻转
+.page-cubeUp-enter-active {
+  transform-origin: 50% 100%;
+  animation: page-cubeUp-enter .8s ease-in both;
+}
+
+.page-cubeUp-leave-active {
+  transform-origin: 50% 100%;
+  animation: page-cubeUp-leave .8s ease-in both;
+}
+
+.page-cubeDown-enter-active {
+  transform-origin: 50% 0;
+  animation: page-cubeDown-enter .8s ease-in both;
+}
+
+.page-cubeDown-leave-active {
+  transform-origin: 50% 0;
+  animation: page-cubeDown-leave .8s ease-in both;
+}
+
+@keyframes page-cubeUp-enter {
+  0% {
+    transform: translateY(-100%) rotateX(90deg);
+    opacity: .3;
+  }
+
+  50% {
+    transform: translateY(-50%) translateZ(-200px) rotateX(45deg);
+    animation-timing-function: ease-out;
+  }
+
+  to {
+    transform: translateY(0) rotateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes page-cubeUp-leave {
+  0% {
+    transform: translateY(0) rotateX(0);
+    opacity: 1;
+  }
+
+  50% {
+    transform: translateY(-50%) translateZ(-200px) rotateX(45deg);
+    animation-timing-function: ease-out;
+  }
+
+  to {
+    transform: translateY(-100%) rotateX(90deg);
+    opacity: .3;
+  }
+}
+
+@keyframes page-cubeDown-enter {
+  0% {
+    transform: translateY(100%) rotateX(-90deg);
+    opacity: .3;
+  }
+
+  50% {
+    transform: translateY(50%) translateZ(-200px) rotateX(-45deg);
+    animation-timing-function: ease-out;
+  }
+
+  to {
+    transform: translateY(0) rotateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes page-cubeDown-leave {
+  0% {
+    transform: translateY(0) rotateX(0);
+    opacity: 1;
+  }
+
+  50% {
+    transform: translateY(50%) translateZ(-200px) rotateX(-45deg);
+    animation-timing-function: ease-out;
+  }
+
+  to {
+    transform: translateY(100%) rotateX(-90deg);
+    opacity: .3
+  }
+}
+
+// push 扇形翻页
+.page-pushUp-enter-active {
+  transform-origin: 50% 0;
+  animation: page-pushUp-enter .8s ease .2s both;
+}
+
+.page-pushUp-leave-active {
+  transform-origin: 50% 0;
+  animation: page-pushUp-leave .8s ease both;
+}
+
+.page-pushDown-enter-active {
+  transform-origin: 50% 100%;
+  animation: page-pushDown-enter .8s ease .2s both;
+}
+
+.page-pushDown-leave-active {
+  transform-origin: 50% 100%;
+  animation: page-pushDown-leave .8s ease both;
+}
+
+@keyframes page-pushUp-enter {
+  0% {
+    transform: rotateX(-90deg);
+    opacity: 0
+  }
+}
+
+@keyframes page-pushUp-leave {
+  to {
+    transform: rotateX(-90deg);
+    opacity: 0
+  }
+}
+
+@keyframes page-pushDown-enter {
+  0% {
+    transform: rotateX(90deg);
+    opacity: 0
+  }
+}
+
+@keyframes page-pushDown-leave {
+  to {
+    transform: rotateX(90deg);
+    opacity: 0
+  }
+}
+
+// three
+.page-threeUp-enter-active {
+  transform-origin: 50% 100%;
+  animation: page-threeUp-enter .8s ease both;
+}
+
+.page-threeUp-leave-active {
+  transform-origin: 50% 100%;
+  animation: page-threeUp-leave .8s ease both;
+}
+
+.page-threeDown-enter-active {
+  transform-origin: 50% 0;
+  animation: page-threeDown-enter .8s ease both;
+}
+
+.page-threeDown-leave-active {
+  transform-origin: 50% 0;
+  animation: page-threeDown-leave .8s ease both;
+}
+
+@keyframes page-threeUp-enter {
+  0% {
+    transform: translateY(-200%) scale(.4) rotateX(-65deg);
+    opacity: .3
+  }
+}
+
+@keyframes page-threeUp-leave {
+  to {
+    transform: translateY(-200%) scale(.4) rotateX(65deg);
+    opacity: .3
+  }
+}
+
+@keyframes page-threeDown-enter {
+  0% {
+    transform: translateY(200%) scale(.4) rotateX(-65deg);
+    opacity: .3
+  }
+}
+
+@keyframes page-threeDown-leave {
+  to {
+    transform: translateY(200%) scale(.4) rotateX(65deg);
+    opacity: .3
+  }
+}

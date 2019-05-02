@@ -1,0 +1,94 @@
+{
+  "name": "vue-h5-swiper",
+  "version": "1.0.2",
+  "main": "dist/swiper.umd.js",
+  "module": "dist/swiper.esm.js",
+  "unpkg": "dist/swiper.min.js",
+  "description": "Slight vue slider component for H5 applications.",
+  "scripts": {
+    "lint": "eslint --ext .js,.vue src",
+    "dev": "webpack-dev-server --inline --progress --open --config examples/webpack.config.js",
+    "build": "npm run build:unpkg & npm run build:es & npm run build:umd",
+    "build:umd": "rollup --config build/rollup.config.js --format umd --file dist/swiper.umd.js",
+    "build:es": "rollup --config build/rollup.config.js --format es --file dist/swiper.esm.js",
+    "build:unpkg": "rollup --config build/rollup.config.js --format iife --file dist/swiper.min.js",
+    "build:demo": "webpack --config examples/webpack.config.js",
+    "prepublish": "npm run build",
+    "test": "jest"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EdgarAllanzp/vue-h5-swiper.git"
+  },
+  "keywords": [
+    "vue-h5-swiper",
+    "vue swiper",
+    "vue slide",
+    "vue carousel",
+    "vue h5",
+    "h5 swiper",
+    "h5"
+  ],
+  "files": [
+    "dist"
+  ],
+  "author": "Edgar Li",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/EdgarAllanzp/vue-h5-swiper/issues"
+  },
+  "homepage": "https://github.com/EdgarAllanzp/vue-h5-swiper#readme",
+  "devDependencies": {
+    "@babel/core": "^7.4.3",
+    "@babel/preset-env": "^7.4.4",
+    "@vue/test-utils": "^1.0.0-beta.29",
+    "autoprefixer": "^9.5.1",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^24.7.1",
+    "babel-loader": "^8.0.5",
+    "css-loader": "^2.1.1",
+    "element-ui": "^2.8.2",
+    "eslint": "^5.16.0",
+    "eslint-plugin-vue": "^5.2.2",
+    "html-webpack-plugin": "^3.2.0",
+    "husky": "^2.1.0",
+    "jest": "^24.7.1",
+    "minimist": "^1.2.0",
+    "node-sass": "^4.11.0",
+    "rollup": "^1.10.1",
+    "rollup-plugin-babel": "^4.3.2",
+    "rollup-plugin-commonjs": "^9.3.4",
+    "rollup-plugin-node-resolve": "^4.2.3",
+    "rollup-plugin-terser": "^4.0.4",
+    "rollup-plugin-vue": "^5.0.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "url-loader": "^1.1.2",
+    "vue": "^2.6.10",
+    "vue-jest": "^3.0.4",
+    "vue-loader": "^15.7.0",
+    "vue-template-compiler": "^2.6.10",
+    "webpack": "^4.30.0",
+    "webpack-cli": "^3.3.1",
+    "webpack-dev-server": "^3.3.1"
+  },
+  "dependencies": {
+    "better-scroll": "^1.15.2"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "vue"
+    ],
+    "transform": {
+      "^.+\\.js$": "./node_modules/babel-jest",
+      "^.+\\.vue$": "./node_modules/vue-jest"
+    }
+  }
+}
