@@ -33,7 +33,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px;
-  color: grey;
+  font-size: 100px;
+  color: #fff;
 }
 </style>
