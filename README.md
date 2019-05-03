@@ -8,9 +8,6 @@
   <img alt="npm" src="https://img.shields.io/npm/v/vue-h5-swiper.svg">
   </a>
   <a href="https://www.npmjs.com/package/vue-h5-swiper">
-  <img alt="npm bundle size" src="https://img.shields.io/bundlephobia/min/vue-h5-swiper.svg">
-  </a>
-  <a href="https://www.npmjs.com/package/vue-h5-swiper">
   <img alt="npm" src="https://img.shields.io/npm/l/vue-h5-swiper.svg">
   </a>
 </p>
