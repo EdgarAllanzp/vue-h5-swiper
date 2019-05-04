@@ -95,8 +95,8 @@ export default {
 
 |Slot            |Description             |
 |----------------|------------------------|
-|default---------|For `SwiperItem`.       |
-|indicator-------|Custom swiper indicator.|
+|default         |For `SwiperItem`.       |
+|indicator       |Custom swiper indicator.|
 
 ### SwiperItem
 
@@ -104,7 +104,7 @@ export default {
 
 |Slot            |Description             |
 |----------------|------------------------|
-|default---------|For display content.    |
+|default         |For display content.    |
 
 
 ## Contributing
